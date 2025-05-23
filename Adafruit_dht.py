@@ -1,6 +1,6 @@
 import requests
 import time
-from gpiozero import PWMLED 
+from gpiozero import PWMLED
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 
@@ -10,7 +10,7 @@ GPIO.setmode(GPIO.BCM)
 # DHT11 szenzor inicializálása
 DHT_SENSOR = Adafruit_DHT.DHT11
 # A DHT11 adatlába a GPIO17-re van kötve (citromsárga vezeték, fizikai 11. pin)
-DHT_PIN = 17 
+DHT_PIN = 17
 
 # LED-ek beállítása a pontos bekötés alapján
 # Piros LED (narancssárga vezeték) -> GPIO 21
@@ -44,10 +44,10 @@ try:
             print(f"Aktuális Páratartalom: {humidity:.1f}%")
 
             # LED logika: 20 fok alatt PIROS, felette KÉK
-            if temperature <= 20: 
+            if temperature <= 20:
                 red_led.value = 1   # Piros LED be
                 blue_led.value = 0  # Kék LED ki
-            else: 
+            else:
                 red_led.value = 0   # Piros LED ki
                 blue_led.value = 1  # Kék LED be
 
